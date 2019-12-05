@@ -1,3 +1,6 @@
+This is my personal playground-fork of the original project to play with
+---------------------------
+
 # DocFX assistant
 
 An extension for VS Code that provides tools for authoring content using Microsoft DocFX.
