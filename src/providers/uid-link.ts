@@ -12,7 +12,7 @@ export class UIDLinkProvider implements vscode.DocumentLinkProvider {
     private inlineLinkMatcher = /([^\w]@)([\w\._#`]*)/g;
 
     /** Regex used to identify XRef ('<xref:xxx>'-style) links to topic UIDs. */
-    private xrefLinkMatcher = /(<xref:)([\w\._\(\)#`]*)\s*(\>)/g;
+    private xrefLinkMatcher = /(<xref:)([\w\._\(\)#`]*\*?)\s*(\>)/g;
 
     /**
      * Create a new UID document link provider.
