@@ -96,11 +96,11 @@ export class UIDLinkProvider implements vscode.DocumentLinkProvider {
         const uidStart: vscode.Position = document.positionAt(offset);
         const uidEnd: vscode.Position = document.positionAt(offset + uid.length);
 
-        const sourceFilePath = path.join(projectDir, topicMetadata.sourceFile);
+        const sourceFilePath = path.join(projectDir, topicMetadata.sourceFile).replace(/\\/g, '/');        
         
         return new vscode.DocumentLink(
             new vscode.Range(uidStart, uidEnd),
-            vscode.Uri.file(sourceFilePath)
+            vscode.Uri.parse('file:///' + sourceFilePath)
         );
     }
 }
