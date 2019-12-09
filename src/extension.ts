@@ -1,6 +1,6 @@
 'use strict';
 
-import * as docfx from 'docfx-project';
+import * as docfx from 'docfx-project-mos';
 import * as fs from 'mz/fs';
 import * as path from 'path';
 import * as Rx from 'rxjs';

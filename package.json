@@ -1,83 +1,88 @@
 {
-    "name": "docfx-assistant",
-    "displayName": "DocFX Assistant",
-    "description": "Tools to assist with authoring content using Microsoft DocFX.",
-    "version": "0.1.5",
-    "publisher": "tintoy",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/tintoy/docfx-assistant.git"
-    },
-    "icon": "images/icon.png",
-    "engines": {
-        "vscode": "^1.14.0"
-    },
-    "categories": [
-        "Programming Languages",
-        "Other"
-    ],
-    "keywords": [
-        "docfx",
-        "markdown"
-    ],
-    "activationEvents": [
-        "workspaceContains:docfx.json",
-        "onLanguage:markdown",
-        "onLanguage:yaml",
-        "onCommand:docfx.refreshTopicUIDs"
-    ],
-    "main": "./out/src/extension",
-    "contributes": {
-        "configuration": {
-            "properties": {
-                "docfxAssistant.disableAutoScan": {
-                    "title": "Disable project auto-scan",
-                    "description": "Don't automatically scan projects when first opening them.",
-                    "type": "boolean"
-                }
-            }
-        },
-        "configurationDefaults": {
-            "docfxAssistant.disableAutoScan": false
-        },
-        "commands": [
-            {
-                "command": "docfx.refreshTopicUIDs",
-                "title": "DocFX: Refresh topic UIDs"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "@types/chai": "^4.0.2",
-        "@types/chokidar": "^1.7.1",
-        "@types/glob": "^5.0.30",
-        "@types/js-yaml": "^3.9.0",
-        "@types/mkdirp": "^0.5.2",
-        "@types/mocha": "^2.2.32",
-        "@types/mz": "0.0.31",
-        "@types/node": "^6.0.40",
-        "chai": "^4.1.1",
-        "mocha": "^2.3.3",
-        "tslint": "^5.5.0",
-        "typescript": "^2.0.3",
-        "vscode": "^1.1.36"
-    },
-    "dependencies": {
-        "chokidar": "^1.7.0",
-        "docfx-project-mos": "file:docfx-project-mos/docfx-project-mos-0.1.4.tgz",
-        "glob": "^7.1.2",
-        "js-yaml": "^3.13.1",
-        "minimatch": "^3.0.4",
-        "mkdirp": "^0.5.1",
-        "mz": "^2.6.0",
-        "rxjs": "^5.4.2",
-        "yaml-front-matter": "^3.4.0"
-    }
+	"name": "docfx-assistant",
+	"displayName": "DocFX Assistant",
+	"description": "Tools to assist with authoring content using Microsoft DocFX.",
+	"version": "0.1.5",
+	"publisher": "tintoy",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tintoy/docfx-assistant.git"
+	},
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.14.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Other"
+	],
+	"keywords": [
+		"docfx",
+		"markdown"
+	],
+	"activationEvents": [
+		"workspaceContains:docfx.json",
+		"onLanguage:markdown",
+		"onLanguage:yaml",
+		"onCommand:docfx.refreshTopicUIDs"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"properties": {
+				"docfxAssistant.disableAutoScan": {
+					"title": "Disable project auto-scan",
+					"description": "Don't automatically scan projects when first opening them.",
+					"type": "boolean"
+				}
+			}
+		},
+		"configurationDefaults": {
+			"docfxAssistant.disableAutoScan": false
+		},
+		"commands": [
+			{
+				"command": "docfx.refreshTopicUIDs",
+				"title": "DocFX: Refresh topic UIDs"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.0.2",
+		"@types/chokidar": "^1.7.1",
+		"@types/glob": "^5.0.30",
+		"@types/js-yaml": "^3.9.0",
+		"@types/mkdirp": "^0.5.2",
+		"@types/mocha": "^2.2.32",
+		"@types/mz": "0.0.31",
+		"@types/node": "^6.0.40",
+		"chai": "^4.1.1",
+		"mocha": "^2.3.3",
+		"tslint": "^5.5.0",
+		"typescript": "^3.7.3",
+		"vscode": "^1.1.36"
+	},
+	"dependencies": {
+		"chokidar": "^1.7.0",
+		"docfx-project-mos": "file:docfx-project-mos/docfx-project-mos-0.1.4.tgz",
+		"glob": "^7.1.2",
+		"js-yaml": "^3.13.1",
+		"minimatch": "^3.0.4",
+		"mkdirp": "^0.5.1",
+		"mz": "^2.6.0",
+		"rxjs": "^5.4.2",
+		"yaml-front-matter": "^3.4.0"
+	},
+	"__metadata": {
+		"id": "8fc0b561-920b-4d5b-9e2d-f61461088d19",
+		"publisherDisplayName": "tintoy",
+		"publisherId": "7dd27a84-4573-4a90-8ba4-4d2fe387a84f"
+	}
 }

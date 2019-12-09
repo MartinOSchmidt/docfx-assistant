@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 import { getUIDRangeAtPosition } from '../utils/editor';
-import { MetadataCache, TopicType, TopicMetadata } from 'docfx-project';
+import { MetadataCache, TopicType, TopicMetadata } from 'docfx-project-mos';
 
 /**
  * Completion provider for DocFX UIDs.
@@ -95,8 +95,13 @@ function completionItemFromTopicMetadata(topicMetadata: TopicMetadata, replaceRa
         }
     }
 
-    const completionItem = new vscode.CompletionItem(topicMetadata.uid, itemKind);
-    completionItem.detail = topicMetadata.title + '\nLocation: ' + topicMetadata.sourceFile;
+    const completionItem = new vscode.CompletionItem(topicMetadata.title, itemKind);
+    completionItem.detail = topicMetadata.uid + '\n\nLocation: ' + topicMetadata.sourceFile;
+    
+    completionItem.insertText = topicMetadata.uid;
+    completionItem.sortText = topicMetadata.uid;
+    completionItem.filterText = topicMetadata.uid;
+
     completionItem.range = replaceRange;
 
     return completionItem;

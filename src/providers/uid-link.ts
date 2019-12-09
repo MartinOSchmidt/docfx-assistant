@@ -1,8 +1,8 @@
-import { TopicMetadata } from 'docfx-project';
+import { TopicMetadata } from 'docfx-project-mos';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-import { MetadataCache } from 'docfx-project';
+import { MetadataCache } from 'docfx-project-mos';
 
 /**
  * Link provider for DocFX UIDs
@@ -96,11 +96,12 @@ export class UIDLinkProvider implements vscode.DocumentLinkProvider {
         const uidStart: vscode.Position = document.positionAt(offset);
         const uidEnd: vscode.Position = document.positionAt(offset + uid.length);
 
-        const sourceFilePath = path.join(projectDir, topicMetadata.sourceFile).replace(/\\/g, '/');        
+        const sourceFilePath = path.join(projectDir, "../_siteGitLab/" + topicMetadata.sourceFile).replace(/\\/g, '/');        
         
         return new vscode.DocumentLink(
             new vscode.Range(uidStart, uidEnd),
-            vscode.Uri.parse('file:///' + sourceFilePath)
+            vscode.Uri.parse('http://localhost:8080/' + topicMetadata.sourceFile)
+            // vscode.Uri.parse('file:///' + sourceFilePath)
         );
     }
 }
