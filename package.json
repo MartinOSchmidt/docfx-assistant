@@ -1,13 +1,13 @@
 {
-	"name": "docfx-assistant",
-	"displayName": "DocFX Assistant",
+	"name": "docfx-assistant-mos",
+	"displayName": "DocFX Assistant - mos",
 	"description": "Tools to assist with authoring content using Microsoft DocFX.",
-	"version": "0.1.5",
-	"publisher": "tintoy",
+	"version": "0.1.0",
+	"publisher": "mos",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/tintoy/docfx-assistant.git"
+		"url": "https://github.com/MartinOSchmidt/docfx-assistant.git"
 	},
 	"icon": "images/icon.png",
 	"engines": {
@@ -79,10 +79,5 @@
 		"mz": "^2.6.0",
 		"rxjs": "^5.4.2",
 		"yaml-front-matter": "^3.4.0"
-	},
-	"__metadata": {
-		"id": "8fc0b561-920b-4d5b-9e2d-f61461088d19",
-		"publisherDisplayName": "tintoy",
-		"publisherId": "7dd27a84-4573-4a90-8ba4-4d2fe387a84f"
 	}
 }
