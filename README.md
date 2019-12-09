@@ -1,5 +1,7 @@
-This is my personal playground-fork of the original project to play with
----------------------------
+This is my personal playground-fork of the original project to play with.
+Goal is to support DocFx's xrefmap.yml properly.
+This is all on dirty hack level. Use at your own risk.
+===
 
 # DocFX assistant
 
