@@ -88,6 +88,11 @@ function completionItemFromTopicMetadata(topicMetadata: TopicMetadata, replaceRa
 
             break;
         }
+        case TopicType.Event: {
+            itemKind = vscode.CompletionItemKind.Event;
+
+            break;
+        }
         default: {
             itemKind = vscode.CompletionItemKind.Value;
 
@@ -96,7 +101,7 @@ function completionItemFromTopicMetadata(topicMetadata: TopicMetadata, replaceRa
     }
 
     const completionItem = new vscode.CompletionItem(topicMetadata.title, itemKind);
-    completionItem.detail = topicMetadata.uid + '\n\nLocation: ' + topicMetadata.sourceFile;
+    completionItem.detail = topicMetadata.uid + '\nType:' + TopicType[topicMetadata.detailedType] + '\nLocation: ' + topicMetadata.sourceFile;
     
     completionItem.insertText = topicMetadata.uid;
     completionItem.sortText = topicMetadata.uid;

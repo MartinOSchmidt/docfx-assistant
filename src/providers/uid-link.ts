@@ -9,7 +9,7 @@ import { MetadataCache } from 'docfx-project-mos';
  */
 export class UIDLinkProvider implements vscode.DocumentLinkProvider {
     /** Regex used to identify inline ('@xxx'-style) links to topic UIDs. */
-    private inlineLinkMatcher = /([^\w]@)([\w\._#`]*)/g;
+    private inlineLinkMatcher = /([^\w]@['"]?)([\w\._#`]*)/g;
 
     /** Regex used to identify XRef ('<xref:xxx>'-style) links to topic UIDs. */
     private xrefLinkMatcher = /(<xref:)([\w\._\(\)#`]*\*?)\s*(\>)/g;
