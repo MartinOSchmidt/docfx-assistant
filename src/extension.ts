@@ -16,6 +16,7 @@ const stateDirectory = path.join(vscode.workspace.rootPath, '.vscode', 'docfx-as
 
 // Extension state.
 let disableAutoScan: boolean;
+let observerWorkspaceChanges: boolean;
 let outputChannel: vscode.OutputChannel;
 let metadataCache: docfx.MetadataCache;
 
@@ -53,15 +54,17 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
             );
         }
         
-        outputChannel.append('Observing workspace changes...\n');
-        const topicChanges = docfx.observeTopicChanges(metadataCache.projectDir);
-    
-        const cacheSubscription = topicChanges.subscribe(metadataCache.topicChanges);
-        context.subscriptions.push(
-            new vscode.Disposable(
-                () => cacheSubscription.unsubscribe()
-            )
-        );
+        if (observerWorkspaceChanges) {
+            outputChannel.append('Observing workspace changes...\n');
+            const topicChanges = docfx.observeTopicChanges(metadataCache.projectDir);
+        
+            const cacheSubscription = topicChanges.subscribe(metadataCache.topicChanges);
+            context.subscriptions.push(
+                new vscode.Disposable(
+                    () => cacheSubscription.unsubscribe()
+                )
+            );
+        }
 
         outputChannel.append('Workspace change observer configured.\n');
     }
@@ -143,6 +146,7 @@ function loadConfiguration(): void {
     const configuration = vscode.workspace.getConfiguration();
 
     disableAutoScan = configuration.get<boolean>('docfxAssistant.disableAutoScan');
+    observerWorkspaceChanges = configuration.get<boolean>('docfxAssistant.observeChanges');
 }
 
 /**
