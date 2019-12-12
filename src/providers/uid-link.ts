@@ -1,4 +1,4 @@
-import { TopicMetadata } from 'docfx-project-mos';
+import { TopicMetadata, TopicType } from 'docfx-project-mos';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
@@ -95,13 +95,18 @@ export class UIDLinkProvider implements vscode.DocumentLinkProvider {
         const offset = (match.index || 0) + prefix.length;
         const uidStart: vscode.Position = document.positionAt(offset);
         const uidEnd: vscode.Position = document.positionAt(offset + uid.length);
+        const linkRange = new vscode.Range(uidStart, uidEnd)
 
-        const sourceFilePath = path.join(projectDir, "../_siteGitLab/" + topicMetadata.sourceFile).replace(/\\/g, '/');        
-        
-        return new vscode.DocumentLink(
-            new vscode.Range(uidStart, uidEnd),
-            vscode.Uri.parse('http://localhost:8080/' + topicMetadata.sourceFile)
-            // vscode.Uri.parse('file:///' + sourceFilePath)
-        );
+        if (topicMetadata.detailedType === TopicType.Conceptual)
+        {
+            const sourceFilePath = path.join(projectDir, topicMetadata.sourceFile);
+            return new vscode.DocumentLink(linkRange, vscode.Uri.file(sourceFilePath));    
+        }
+        else
+        {
+            // const uri = vscode.Uri.parse('file:///' + path.join(projectDir, "../_siteGitLab/" + topicMetadata.sourceFile).replace(/\\/g, '/'));
+            const uri = vscode.Uri.parse('http://localhost:8080/' + topicMetadata.sourceFile);
+            return new vscode.DocumentLink(linkRange, uri);
+        }
     }
 }
