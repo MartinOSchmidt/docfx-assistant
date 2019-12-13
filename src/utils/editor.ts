@@ -42,6 +42,6 @@ export function getUIDAtPosition(document: vscode.TextDocument, position: vscode
 export function getUIDRangeAtPosition(document: vscode.TextDocument, position: vscode.Position): vscode.Range {
     return document.getWordRangeAtPosition(
         position,
-        /[A-Za-z0-9_\(\)\.#]+/
+        /[A-Za-z0-9_\(\)\.#]*[\w\._]/
     );
 }
