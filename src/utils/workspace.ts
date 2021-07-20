@@ -25,9 +25,10 @@ export async function getDocFXProjectFile(workspaceState: vscode.Memento, progre
         // For glob syntax examples, see https://github.com/Microsoft/vscode/blob/d7abec3a2c0157e1ee10f23c78a614f0902e0d27/src/vs/base/common/glob.ts#L243
         const files = await vscode.workspace.findFiles(
             '**/docfx.json',                    // include
-            '{.git/**,**/node_modules/**}',     // exclude
+            '{.git/**,packages/**,**/node_modules/**}',     // exclude
             1                                   // maxResults
         );
+
         if (!files.length) {
             if (!ignoreMissingProjectFile) {
                 progress.error(
