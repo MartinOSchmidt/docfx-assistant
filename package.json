@@ -44,7 +44,7 @@
 			}
 		},
 		"configurationDefaults": {
-			"docfxAssistant.disableAutoScan": false
+			"docfxAssistant.disableAutoScan": true
 		},
 		"commands": [
 			{
@@ -76,7 +76,7 @@
 	},
 	"dependencies": {
 		"chokidar": "^1.7.0",
-		"docfx-project-mos": "file:docfx-project-mos/docfx-project-mos-0.1.4.tgz",
+		"docfx-project-mos": "file:docfx-project-mos/docfx-project-mos-0.1.5.tgz",
 		"glob": "^7.1.2",
 		"js-yaml": "^3.13.1",
 		"minimatch": "^3.0.4",
