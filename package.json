@@ -35,13 +35,13 @@
 					"title": "Disable project auto-scan",
 					"description": "Don't automatically scan projects when first opening them.",
 					"type": "boolean",
-					"default" : "true"
+					"default": "true"
 				},
 				"docfxAssistant.observeChanges": {
 					"title": "Watch markdown and yaml files for changes.",
 					"description": "If active markdown and yaml files are watched for changes and topics are updated automatically. May be problematic with large xrefmap-yaml. (Restart required to make config change active!)",
 					"type": "boolean",
-					"default" : "false"
+					"default": "false"
 				}
 			}
 		},
@@ -69,7 +69,7 @@
 		"@types/node": "^6.0.40",
 		"@types/vscode": "^1.1.36",
 		"chai": "^4.1.1",
-		"mocha": "^2.3.3",
+		"mocha": "^9.1.4",
 		"tslint": "^5.5.0",
 		"typescript": "^3.7.3",
 		"vscode-test": "^1.1.36"
