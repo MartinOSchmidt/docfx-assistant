@@ -105,7 +105,7 @@ export class UIDLinkProvider implements vscode.DocumentLinkProvider {
         else
         {
             // const uri = vscode.Uri.parse('file:///' + path.join(projectDir, "../_siteGitLab/" + topicMetadata.sourceFile).replace(/\\/g, '/'));
-            const uri = vscode.Uri.parse('http://localhost:8080/' + topicMetadata.sourceFile);
+            const uri = vscode.Uri.parse('http://localhost:8099/' + topicMetadata.sourceFile);
             return new vscode.DocumentLink(linkRange, uri);
         }
     }
